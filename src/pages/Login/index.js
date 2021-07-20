@@ -1,19 +1,26 @@
 import React from 'react';
 import { Form, Button } from "react-bootstrap";
 import { useFormik } from "formik";
+import { useAuth } from '../../hooks/contexts/AuthProvider';
 import Container from '../../components/Container';
+import { useHistory } from 'react-router-dom';
 
 // import { Container } from './styles';
 
 function Login() {
+  const { SignIn } = useAuth();
+  const history = useHistory();
+
   const formik = useFormik({
     initialValues: {
       login: '',
       password: '',
     },
 
-    onSubmit: values => {
-      alert(JSON.stringify(values, null, 2));
+    onSubmit: async values => {
+      //alert(JSON.stringify(values, null, 2));
+      await SignIn(values);
+      history.push("/home");
     }
   });
 
