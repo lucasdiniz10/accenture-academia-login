@@ -7,7 +7,7 @@ export const Styled = {
     align-self: center;
     justify-self: center;
     color: ${mixins.colors.red};
-    font-family: ${mixins.fonts.normal};
+    font-family: ${mixins.fonts.semi_bold};
     font-weight: ${mixins.typograph.paragraph};
   `
 };
