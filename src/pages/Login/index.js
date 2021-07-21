@@ -1,14 +1,15 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 import { Form, Button } from "react-bootstrap";
 import { useFormik } from "formik";
 import { useAuth } from '../../hooks/contexts/AuthProvider';
 import Container from '../../components/Container';
 import { useHistory } from 'react-router-dom';
+import { Styled } from './styles';
 
 // import { Container } from './styles';
 
 function Login() {
-  const { SignIn } = useAuth();
+  const { SignIn, error } = useAuth();
   const history = useHistory();
 
   const formik = useFormik({
@@ -23,6 +24,10 @@ function Login() {
       history.push("/home");
     }
   });
+
+  const AppError = useMemo(
+    () => <Styled.Error>{error}</Styled.Error>, [error]
+  );
 
   return (
     <Container
@@ -52,6 +57,7 @@ function Login() {
         <Button variant="primary" type="submit">
           Entrar
         </Button>
+        {AppError}
       </Form>
     </Container>
   );
