@@ -7,6 +7,18 @@
       "access_token": "liberado"
     }
   ],
-
-  "products": []
+  "products": [
+    {
+      "name": "Celular",
+      "description": "Produto de telefonia",
+      "price": 500,
+      "id": 1
+    },
+    {
+      "name": "Feijão",
+      "description": "Alimento",
+      "price": 3,
+      "id": 2
+    }
+  ]
 }

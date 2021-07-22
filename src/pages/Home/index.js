@@ -1,15 +1,29 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import CardProduct from '../../components/CardProduct';
 import Container from '../../components/Container';
+import { useProduct } from '../../hooks/contexts/ProductProvider';
 
-// import { Container } from './styles';
+import { Styled } from './styles';
 
 function Home() {
-  return (
-    <Container
-      title="Home"
-      size="lg"
-    >
+  const { products, getProducts } = useProduct();
 
+  useEffect(() => {
+    getProducts();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [])
+  console.log(products)
+
+  return (
+    <Container title="Home" size="lg">
+      <Styled.CardWrapper>
+        {products.map(product => (
+          <CardProduct
+            key={product.id}
+            product={product}
+          />
+        ))}
+      </Styled.CardWrapper>
     </Container>
   );
 }

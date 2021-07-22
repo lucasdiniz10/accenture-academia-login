@@ -6,6 +6,7 @@ import NotFound from '../pages/NotFound';
 import NavBar from '../components/NavBar';
 import { useAuth } from '../hooks/contexts/AuthProvider';
 import { Styled } from './styles';
+import CreateProducts from '../pages/CreateProducts';
 
 function Routes() {
   const { auth } = useAuth()
@@ -16,11 +17,11 @@ function Routes() {
         <Switch>
           <Route path="/" exact component={Login} />
           {auth && <Route path="/home" component={Home} />}
+          {auth && <Route path="/create-products" component={CreateProducts} />}
           <Redirect from="*" to={NotFound} />
         </Switch>
       </Styled.PageLayout>
     </Styled.AppLayout>
-
   );
 }
 

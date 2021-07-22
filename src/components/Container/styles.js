@@ -22,7 +22,9 @@ export const Styled = {
   ContainerLG: styled(ContainerSM)`
     margin: 5% 0;
     width: 90%;
-    flex-direction: row;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
     padding: none;
   `,
 
